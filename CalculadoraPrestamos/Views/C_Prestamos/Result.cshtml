@@ -1,0 +1,30 @@
+﻿@model Application.ViewModels.PrestamoViewModel 
+@{
+    ViewData["Title"] = "Resultado";
+}
+
+<div style="width: 500px; height: 500px; background-color: rgb(38 42 88)" class=" container flex-column rounded-2 text-black d-flex flex-row justify-content-center align-items-center">
+    <form method="get" asp-controller="C_Prestamos" asp-action="Index" >
+        @if (@Model.resultado == 0)
+        {
+            <div class="card mb-4">
+                <div class="card-body text-center">
+                    No ha especificado ningun monto!
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="card mb-4" style="width: 18rem;">
+                <div class="card-body">
+                    <h3 class="card-title text-capitalize text-center">@ViewData["Title"]</h3>
+                    <h5 class="card-subtitle mb-2 text-muted text-center">La Cuota a Pagar Mensualmente es de:</h5>
+                    <h5 class="card-text text-center">@Model.resultado Pesos</h5>
+                </div>
+            </div>
+        }
+        <div class="row justify-content-center">
+            <button type="submit" class="btn btn-info col-4 m-2 p-2 text-white">Volver</button>
+        </div>
+    </form>
+</div>
